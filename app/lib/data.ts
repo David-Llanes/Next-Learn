@@ -96,6 +96,8 @@ export async function fetchFilteredInvoices(
   query: string,
   currentPage: number,
 ) {
+  // await new Promise((resolve) => setTimeout(resolve, 1500));
+
   noStore();
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
@@ -130,6 +132,7 @@ export async function fetchFilteredInvoices(
 
 export async function fetchInvoicesPages(query: string) {
   noStore();
+  // await new Promise((resolve) => setTimeout(resolve, 5000));
   try {
     const count = await sql`SELECT COUNT(*)
     FROM invoices
@@ -169,6 +172,7 @@ export async function fetchInvoiceById(id: string) {
       amount: invoice.amount / 100,
     }));
 
+    console.log(invoice);
     return invoice[0];
   } catch (error) {
     console.error('Database Error:', error);
@@ -177,6 +181,7 @@ export async function fetchInvoiceById(id: string) {
 }
 
 export async function fetchCustomers() {
+  // await new Promise((resolve) => setTimeout(resolve, 5000));
   noStore();
   try {
     const data = await sql<CustomerField>`

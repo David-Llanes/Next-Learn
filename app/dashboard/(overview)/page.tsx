@@ -8,6 +8,7 @@ import {
   LatestInvoicesSkeleton,
   CardsSkeleton,
 } from '@/app/ui/skeletons';
+import Link from 'next/link';
 
 export default async function Page() {
   return (
